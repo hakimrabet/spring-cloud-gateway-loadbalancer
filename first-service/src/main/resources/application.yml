@@ -2,10 +2,13 @@ spring:
   application:
     name: first-service
 server:
-  port: ${app-port:9090}
+  port: ${app-port:0}
   servlet:
     context-path: /api/v1/first/
+
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int[7000,8000]}
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka

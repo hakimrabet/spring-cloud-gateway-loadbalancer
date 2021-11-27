@@ -1,19 +1,16 @@
 package com.hamrasta.gatewayservice.controller;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FirstController {
 
-    @Value("${server.port}")
-    private String serverPort;
-
     @GetMapping("/test/{value}")
-    public String test(@PathVariable String value){
-        System.out.println("*******  ONE  *******");
-        return value+" " + serverPort;
+    public String test(@PathVariable String value) {
+        System.out.println("*******  LOG SERVICE  *******");
+        return value;
     }
-
 
 }
